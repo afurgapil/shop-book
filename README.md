@@ -5,6 +5,7 @@ This project contains a shopping list application developed using React Native a
 <div align="center">
   <img src="https://github.com/afurgapil/shop-book/assets/99171546/afba81ec-eeac-4966-ac01-d098a8b919ab" alt="Live Preview">
 </div>
+
 ## Features
 
 - Create, edit, and delete shopping lists.
@@ -26,6 +27,17 @@ For a detailed list of project dependencies and their versions, please refer to 
 2. Navigate to the project folder: `cd shop-book`
 3. Install dependencies: `npm install`
 4. Start the Expo development server: `npm start`
+
+## Configuration
+
+1. Create a `.env` file in the `services` directory.
+2. Add the following line to your `.env`file and replace `YOUR_MONGODB_URI` with your actual MongoDB connection string:
+
+   ```plaintext
+   MONGODB_CONNECTION_STRING=mongodb+srv://username:password@your-cluster.mongodb.net/your-database-name
+   ```
+
+Default API_URL is set to 'http://localhost:3000/'
 
 ## Usage
 
