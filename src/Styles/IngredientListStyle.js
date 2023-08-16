@@ -1,5 +1,4 @@
 import { StyleSheet, Dimensions } from "react-native";
-const windowHeight = Dimensions.get("window").height;
 
 export const ingredientListStyle = StyleSheet.create({
   container: {

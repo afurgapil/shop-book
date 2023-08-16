@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
-import API_URL from "../../config";
+//style
 import { signupStyles } from "../Styles/SignUpStyle";
 const SignupScreen = ({ navigation }) => {
   const [username, setUsername] = useState("");
@@ -29,10 +29,13 @@ const SignupScreen = ({ navigation }) => {
         }, 1000);
       } else {
         const responseData = await response.json();
-        console.error("Kayıt hatası:", responseData.error);
+        console.error("Sign Up Error:", responseData.error);
       }
     } catch (error) {
-      console.error("Kayıt işlemi sırasında bir hata oluştu:", error);
+      console.error(
+        "An error occurred during the registration process:",
+        error
+      );
     }
   };
   return (

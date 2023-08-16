@@ -19,7 +19,7 @@ router.post("/add/:userId", authMiddleware, async (req, res) => {
     res.status(500).json({ error: "Failed to add ingredient." });
   }
 });
-
+//set ingredient
 router.put("/set/:id", authMiddleware, async (req, res) => {
   try {
     const { id, updatedIngredients } = req.body;
@@ -30,7 +30,7 @@ router.put("/set/:id", authMiddleware, async (req, res) => {
     res.status(201).json(user);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "can not updated" });
+    res.status(500).json({ error: "Can not updated" });
   }
 });
 // delete ingredient

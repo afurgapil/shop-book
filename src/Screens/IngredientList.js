@@ -9,14 +9,17 @@ import {
 } from "react-native";
 import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
-import user, { setUser } from "../store/slicers/user";
+//hooks
 import { useToken } from "../hooks/useToken";
 import { useUser } from "../hooks/useUser";
 import { useValue } from "../hooks/useValue";
+import { setUser } from "../store/slicers/user";
+import { useDispatch } from "react-redux";
+//style
 import { ingredientListStyle } from "../Styles/IngredientListStyle";
+//icon
 import Icon from "react-native-vector-icons/AntDesign";
 import MIcon from "react-native-vector-icons/MaterialIcons";
-import { useDispatch } from "react-redux";
 const sortOptions = [
   { label: "Sort Ingredients", value: "Sort Ingredients" },
   { label: "Bought First", value: "Bought First" },

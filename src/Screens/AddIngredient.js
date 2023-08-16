@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import { addIngredientStyle } from "../Styles/AddIngredientStyle";
+//hooks
 import { useToken } from "../hooks/useToken";
 import { useUser } from "../hooks/useUser";
 import { useDispatch } from "react-redux";
 import { useValue } from "../hooks/useValue";
 import { setData } from "../store/slicers/data";
+//style
+import { addIngredientStyle } from "../Styles/AddIngredientStyle";
+//icon
 import Icon from "react-native-vector-icons/AntDesign";
 const AddIngredientScreen = ({ navigation }) => {
   const [name, setName] = useState("");
@@ -55,10 +58,10 @@ const AddIngredientScreen = ({ navigation }) => {
         dispatch(setData(!value));
         navigation.goBack();
       } else {
-        console.log("Malzeme eklenirken hata oluştu");
+        console.log("Error adding ingredient");
       }
     } catch (error) {
-      console.error("Hata:", error);
+      console.error("Error:", error);
     }
   };
 

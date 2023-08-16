@@ -7,9 +7,12 @@ import {
   Switch,
   Image,
 } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+//hooks
 import { useDispatch } from "react-redux";
 import { setToken, setUser } from "../store/slicers/user";
+//storage
+import AsyncStorage from "@react-native-async-storage/async-storage";
+//style
 import { signinStyles } from "../Styles/SignInStyle";
 const SigninScreen = ({ navigation }) => {
   const [username, setUsername] = useState("");
@@ -47,7 +50,7 @@ const SigninScreen = ({ navigation }) => {
         navigation.navigate("AppTabs");
       } else {
         const responseData = await response.json();
-        console.error("Giriş hatası:", responseData.error);
+        console.error("Login Error:", responseData.error);
       }
     } catch (error) {
       console.error(error);

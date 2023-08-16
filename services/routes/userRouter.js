@@ -1,4 +1,3 @@
-// routes/userRouter.js
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -6,7 +5,7 @@ const User = require("../models/user");
 
 const userRouter = express.Router();
 
-// Kullanıcı kaydı
+// signup
 userRouter.post("/register", async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -17,26 +16,26 @@ userRouter.post("/register", async (req, res) => {
       password: hashedPassword,
     });
     await user.save();
-    res.status(201).json({ message: "Kullanıcı başarıyla oluşturuldu." });
+    res.status(201).json({ message: "User created succesfully." });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-// Kullanıcı girişi
+// signin
 userRouter.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
     if (!user) {
-      return res.status(401).json({ error: "Kullanıcı bulunamadı." });
+      return res.status(401).json({ error: "User not found." });
     }
     const passwordMatch = await bcrypt.compare(password, user.password);
     if (!passwordMatch) {
-      return res.status(401).json({ error: "Hatalı şifre." });
+      return res.status(401).json({ error: "Password error." });
     }
 
-    const token = jwt.sign({ userId: user._id }, "gizliAnahtar");
+    const token = jwt.sign({ userId: user._id }, "key");
     res.json({ user, token });
   } catch (error) {
     res.status(500).json({ error: error.message });

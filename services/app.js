@@ -1,20 +1,19 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 
 const userRouter = require("./routes/userRouter");
 const ingredientRouter = require("./routes/ingredientRouter");
 
 const app = express();
 const port = process.env.PORT || 3000;
+const MONGODB_CONNECTION_STRING = process.env.MONGODB_CONNECTION_STRING;
 
-mongoose.connect(
-  "mongodb+srv://pemec33680:zQbZprOI0260K8FE@db0.g0bffm3.mongodb.net/?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(MONGODB_CONNECTION_STRING, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.use(cors());
 app.use(express.json());
